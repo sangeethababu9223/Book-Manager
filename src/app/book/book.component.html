@@ -2,12 +2,10 @@
 <button class="btn btn-primary" (click)="addBooks()">Add Books</button>
 <div *ngFor="let book of books">
     <h4>
-        <a [title]="book.Title +' details'"></a>
-        {{ book.name }}
+        {{ book.title }}
     </h4>
-    <p *ngIf="book.summary">
-       Summary: {{book.summary}}
+    <p *ngIf="book.blurb">
+       Summary: {{book.blurb}}
     </p>
-    <button class="btn btn-primary" (click)="share()">Share</button>
     <button class="btn btn-primary" (click)="removeBook()">Remove</button>
 </div>

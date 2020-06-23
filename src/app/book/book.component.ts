@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {books} from '../books';
+// import {books} from '../books';
+import { RootService } from './root.service';
 
 @Component({
   selector: 'app-book',
@@ -7,21 +8,34 @@ import {books} from '../books';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent implements OnInit {
-  books = books;
-  
-  constructor() { }
+  // books = books;
+  books;
+  constructor(private rootService : RootService) {
+    
+  }
 
   ngOnInit(): void {
+    this.getBooks();
   }
   share() {
     window.alert('Book Shared');
   }
   addBooks() {
-    books.push({
-      name: 'The priory of Orange tree',
-      author: 'Samantha Shannon',
-      language: 'English',
-      summary: 'The House of Berethnet has ruled Inys for a thousand years. Still unwed, Queen Sabran the Ninth must conceive a daughter to protect her realm from destruction—but assassins are getting closer to her door.',
+    this.rootService.postAPIData().subscribe((response)=>{
+      console.log(response);
+      this.getBooks();
+    },(error) => {
+        console.log('error is ', error)
+    });
+  }
+  getBooks(){
+    this.rootService.getAPIData().subscribe((response)=>{
+      console.log(response);
+      this.books = response['booklists'];
+      console.log("Books Here..!!");
+      console.log(this.books);
+    },(error) => {
+        console.log('error is ', error)
     });
   }
   removeBook(){
