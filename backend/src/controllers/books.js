@@ -11,10 +11,10 @@ export const booksPage = async (req, res, next) => {
 };
 
 export const addBook = async (req, res, next) => {
-  const { title, author, category, ISBN } = req.body;
+  const { title, author, category, ISBN, blurb } = req.body;
   try {
-    const m = await BookLists({ title, author, category, ISBN }).save();
-    res.status(201).json({ success: true, title: m });
+    const m = await BookLists({ title, author, category, ISBN, blurb }).save();
+    res.status(201).json({ success: true, book: m });
   } catch (err) {
     next(err);
   }

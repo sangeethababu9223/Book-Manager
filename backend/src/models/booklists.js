@@ -5,6 +5,7 @@ const booklistsSchema = new Schema({
   author: { type: String, required: true },
   category: { type: String },
   ISBN: { type: String },
+  blurb: { type: String },
 });
 
 export const BookLists = model('booklists', booklistsSchema);

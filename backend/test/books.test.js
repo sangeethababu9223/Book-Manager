@@ -17,7 +17,7 @@ describe('booklists', () => {
   });
 
   it('posts booklists', done => {
-    const data = { title: 'some name', author: 'new message', category: 'some category', ISBN: 'some isbn'  };
+    const data = { title: 'some name', author: 'new message', category: 'some category', ISBN: 'some isbn', blurb : 'some blurb'  };
     server
       .post(`${BASE_URL}/books`)
       .send(data)
@@ -25,8 +25,8 @@ describe('booklists', () => {
       .end((err, res) => {
         expect(res.status).to.equal(201);
         expect(res.body.success).to.equal(true);
-        expect(res.body.title).to.have.property('title', data.title);
-        expect(res.body.title).to.have.property('author', data.author);
+        expect(res.body.book).to.have.property('title', data.title);
+        expect(res.body.book).to.have.property('author', data.author);
         done();
       });
   });

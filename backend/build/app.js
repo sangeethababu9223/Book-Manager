@@ -15,6 +15,8 @@ var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
 var _index = _interopRequireDefault(require("./routes/index"));
 
+var _bodyParser = _interopRequireDefault(require("body-parser"));
+
 require("./models/connect");
 
 const app = (0, _express.default)();
@@ -25,5 +27,6 @@ app.use(_express.default.urlencoded({
 }));
 app.use((0, _cookieParser.default)());
 app.use('/v1', _index.default);
+
 var _default = app;
 exports.default = _default;
