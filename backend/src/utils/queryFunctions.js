@@ -1,7 +1,7 @@
 import debug from 'debug';
 import '../models/connect';
 
-import { BookList } from '../models/models';
+import { BookLists } from '../models/booklists';
 
 const logger = debug('dev');
 
@@ -15,7 +15,7 @@ export const createData = async () => new Promise(resolve => {
 
   data.forEach(async (d, index) => {
     const { title, author, category, ISBN } = d;
-    const m = BookList({ title, author, category, ISBN });
+    const m = BookLists({ title, author, category, ISBN });
     try {
       await m.save();
     } catch (err) {
@@ -31,7 +31,7 @@ export const deleteData = async () => new Promise(resolve => {
   data.forEach(async (d, index) => {
     const { title } = d;
     try {
-      await BookList.deleteOne({ title });
+      await BookLists.deleteOne({ title });
     } catch (err) {
       logger(`error: ${err.message}`);
     }
