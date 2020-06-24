@@ -1,5 +1,5 @@
+import { BookInventory } from './book-inventory';
 import { Component, OnInit } from '@angular/core';
-// import {books} from '../books';
 import { RootService } from './root.service';
 
 @Component({
@@ -10,10 +10,11 @@ import { RootService } from './root.service';
 export class BookComponent implements OnInit {
   // books = books;
   books;
+  newBook = new BookInventory('','','','','');
   constructor(private rootService : RootService) {
     
   }
-
+  
   ngOnInit(): void {
     this.getBooks();
   }
@@ -21,7 +22,13 @@ export class BookComponent implements OnInit {
     window.alert('Book Shared');
   }
   addBooks() {
-    this.rootService.postAPIData().subscribe((response)=>{
+    var titleval = this.newBook.title;
+    var authorval = this.newBook.author;
+    var catval = this.newBook.category;
+    var isbnval = this.newBook.ISBN;
+    var blurbval = this.newBook.blurb;
+    var newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'ISBN' : isbnval, 'blurb' : blurbval};
+    this.rootService.postAPIData(newBookItem).subscribe((response)=>{
       console.log(response);
       this.getBooks();
     },(error) => {
