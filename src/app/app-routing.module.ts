@@ -1,7 +1,7 @@
-import { BookComponent } from './book/book.component';
+import { BookComponent } from './books-manager/book/book.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './users-manager/login/login.component';
+import { SignUpComponent } from './users-manager/sign-up/sign-up.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
