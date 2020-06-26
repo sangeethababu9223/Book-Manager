@@ -10,7 +10,12 @@ export class RootService {
   getAPIData(){
     return this.http.get('http://localhost:3000/v1/books/');
   }
-  postAPIData(newBook){
-    return this.http.post('http://localhost:3000/v1/books/', newBook);
+  postAPIData(newItem,type="books"){
+    if(type=="books"){
+      return this.http.post('http://localhost:3000/v1/books/', newItem);
+    }
+    else if(type=="users"){
+      return this.http.post('http://localhost:3000/v1/users/', newItem);
+    }
   }
 }

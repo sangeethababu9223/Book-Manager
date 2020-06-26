@@ -1,4 +1,4 @@
-import { Users } from './../users';
+import { Users } from '../../model/users';
 import { Component, OnInit } from '@angular/core';
 import { RootService } from '../../services/root.service';
 @Component({
@@ -7,7 +7,7 @@ import { RootService } from '../../services/root.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  newUser = new Users('','','','');
+  newUser = new Users('','','','','');
   constructor(private rootService : RootService) { }
   ngOnInit(): void {  
   }
@@ -18,7 +18,7 @@ export class SignUpComponent implements OnInit {
     var passwordval = this.newUser.password;
  
     var newUserItem = {'fname' : fnameval, 'lname' : lnameval, 'user': userval, 'password' : passwordval };
-    this.rootService.postAPIData(newUserItem).subscribe((response)=>{
+    this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
       console.log(response);
     },(error) => {
         console.log('error is ', error)
