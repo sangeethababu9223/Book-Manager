@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
-import { CustomvalidationService } from '../services/customvalidation.service';
+import { CustomvalidationService } from './../services/customvalidation.service';
 
 @Directive({
   selector: '[appPasswordPattern]',
