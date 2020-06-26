@@ -1,22 +1,30 @@
 <h1>Sign Up</h1>
-<!--
-<form (ngSubmit)="addBooks();signUpForm.reset()" #signUpForm="ngForm">
+<form (ngSubmit)="addUsers();signUpForm.reset()" #signUpForm="ngForm">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" class="form-control" id="fname" name="fname" required
+      [(ngModel)]="newUser.fname">
+          </div>
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input type="text" class="form-control" id="lname" name="lname" required
+      [(ngModel)]="newUser.lname">
+          </div>
     <div class="form-group">
       <label for="user">Username</label>
       <input type="text" class="form-control" id="user" name="user" required
-      [(ngModel)]="newBook.user">
+      [(ngModel)]="newUser.user">
           </div>
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" required
-      [(ngModel)]="newBook.author">
+      [(ngModel)]="newUser.password">
     </div>
     <div class="form-group">
       <label for="cpassword">Confirm Password</label>
       <input type="password" class="form-control" id="cpassword" name="cpassword"
-      [(ngModel)]="newBook.category">
+      [(ngModel)]="newUser.password">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 
   </form>
-  -->

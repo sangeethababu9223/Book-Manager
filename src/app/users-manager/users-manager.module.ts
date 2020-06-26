@@ -15,4 +15,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     FormsModule
   ]
 })
-export class UsersManagerModule { }
+export class UsersManagerModule {
+
+}
