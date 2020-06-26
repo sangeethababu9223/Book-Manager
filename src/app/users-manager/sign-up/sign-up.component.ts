@@ -11,6 +11,10 @@ export class SignUpComponent implements OnInit {
   constructor(private rootService : RootService) { }
   ngOnInit(): void {  
   }
+  onSubmit() {
+    alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+    console.table(this.newUser);
+  }
   addUsers() {
     var fnameval = this.newUser.fname;
     var lnameval = this.newUser.lname;

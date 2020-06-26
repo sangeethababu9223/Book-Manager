@@ -7,7 +7,6 @@ import { FormGroup } from '@angular/forms';
 })
 export class CustomvalidationService {
 
-  constructor() { }
   patternValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
       if (!control.value) {
@@ -18,10 +17,11 @@ export class CustomvalidationService {
       return valid ? null : { invalidPassword: true };
     };
   }
-  MatchPassword(password: string, cpassword: string) {
+
+  MatchPassword(password: string, confirmPassword: string) {
     return (formGroup: FormGroup) => {
       const passwordControl = formGroup.controls[password];
-      const confirmPasswordControl = formGroup.controls[cpassword];
+      const confirmPasswordControl = formGroup.controls[confirmPassword];
 
       if (!passwordControl || !confirmPasswordControl) {
         return null;
@@ -39,4 +39,20 @@ export class CustomvalidationService {
     }
   }
 
+  userNameValidator(userControl: AbstractControl) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        if (this.validateUserName(userControl.value)) {
+          resolve({ userNameNotAvailable: true });
+        } else {
+          resolve(null);
+        }
+      }, 1000);
+    });
+  }
+
+  validateUserName(userName: string) {
+    const UserList = ['ankit', 'admin', 'user', 'superuser'];
+    return (UserList.indexOf(userName) > -1);
+  }
 }
