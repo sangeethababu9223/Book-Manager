@@ -1,5 +1,3 @@
-import { MatchPasswordDirective } from './../directives/match-password.directive';
-import { PasswordPatternDirective } from './../directives/password-pattern.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule , ReactiveFormsModule  }   from '@angular/forms';
@@ -9,8 +7,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   declarations: [
     LoginComponent,
     SignUpComponent,
-    PasswordPatternDirective,
-    MatchPasswordDirective
   ],
   imports: [
     CommonModule,
