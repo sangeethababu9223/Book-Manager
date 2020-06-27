@@ -1,11 +1,11 @@
 <h1>Sign Up</h1>
-<form  #signUpForm="ngForm" [appMatchPassword]="['password', 'cpassword']" 
-(ngSubmit)="signUpForm.form.valid && addUsers()" novalidate>
+<form  [formGroup]="signUpForm" 
+(ngSubmit)="signUpForm.form.valid && onSubmit" >
     <div class="form-group">
       <label for="fname">First Name</label>
       <input type="text" class="form-control" id="fname" name="fname" required minlength="4"
-      [(ngModel)]="newUser.fname" #fname="ngModel">
-      <div *ngIf="fname.invalid && (fname.dirty || fname.touched || signUpForm.submitted)"
+      [(ngModel)]="newUser.fname" formControlName="fname">
+      <!-- <div *ngIf="fname.invalid && (fname.dirty || fname.touched || signUpForm.submitted)"
           class="alert alert-danger">
         <div *ngIf="fname.errors.required">
           First Name is required.
@@ -13,14 +13,14 @@
         <div *ngIf="fname.errors.minlength">
           First Name must be at least 4 characters long.
         </div>
-      </div>
+      </div> -->
 
           </div>
     <div class="form-group">
       <label for="lname">Last Name</label>
       <input type="text" class="form-control" id="lname" name="lname" required minlength="4"
-      [(ngModel)]="newUser.lname" #lname="ngModel">
-      <div *ngIf="lname.invalid && (lname.dirty || lname.touched || signUpForm.submitted)"
+      [(ngModel)]="newUser.lname" formControlName="lname">
+      <!-- <div *ngIf="lname.invalid && (lname.dirty || lname.touched || signUpForm.submitted)"
           class="alert alert-danger">
         <div *ngIf="lname.errors.required">
           Last Name is required.
@@ -28,13 +28,13 @@
         <div *ngIf="lname.errors.minlength">
           Last Name must be at least 4 characters long.
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="form-group">
       <label for="user">Username</label>
       <input type="text" class="form-control" id="user" name="user" required minlength="6"
-      [(ngModel)]="newUser.user" #user = "ngModel">
-      <div *ngIf="user.invalid && (user.dirty || user.touched || signUpForm.submitted)"
+      [(ngModel)]="newUser.user" formControlName = "user">
+      <!-- <div *ngIf="user.invalid && (user.dirty || user.touched || signUpForm.submitted)"
           class="alert alert-danger">
         <div *ngIf="user.errors.required">
           Username is required.
@@ -42,13 +42,13 @@
         <div *ngIf="user.errors.minlength">
           Username must be at least 6 characters long.
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" appPasswordPattern required
-      [(ngModel)]="newUser.password" #password = "ngModel">
-      <div *ngIf="password.invalid && (password.dirty || password.touched || signUpForm.submitted)"
+      [(ngModel)]="newUser.password" formControlName = "password">
+      <!-- <div *ngIf="password.invalid && (password.dirty || password.touched || signUpForm.submitted)"
           class="alert alert-danger">
           <div *ngIf="password.errors?.required">
             Password is required.
@@ -57,13 +57,16 @@
             Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
             letter and 1 number
           </div>
-      </div>
+      </div> -->
+      <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+        <div *ngIf="f.password.errors.required">Password is required.</div>
+    </div>
     </div>
     <div class="form-group">
       <label for="cpassword">Confirm Password</label>
       <input type="password" class="form-control" id="cpassword" name="cpassword" appMatchPassword required
-      [(ngModel)]="newUser.cpassword" #cpassword="ngModel">
-      <div *ngIf="cpassword.invalid && (cpassword.dirty || cpassword.touched || signUpForm.submitted)"
+      [(ngModel)]="newUser.cpassword" formControlName="cpassword">
+      <!-- <div *ngIf="cpassword.invalid && (cpassword.dirty || cpassword.touched || signUpForm.submitted)"
           class="alert alert-danger">
         <div *ngIf="cpassword.errors?.required">
           Confirm Password is required.
@@ -71,7 +74,11 @@
         <div *ngIf="cpassword.errors?.passwordMismatch">
           Passwords doesnot match
         </div>
-      </div>
+      </div> -->
+      <div *ngIf="f.cpassword.touched && f.cpassword.invalid" class="alert alert-danger">
+        <div *ngIf="f.cpassword.errors.required">Password is required.</div>
+        <div *ngIf="f.cpassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+    </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 

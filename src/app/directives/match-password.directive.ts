@@ -13,6 +13,11 @@ export class MatchPasswordDirective implements Validator {
   constructor(private customValidator: CustomvalidationService) { }
 
   validate(formGroup: FormGroup): ValidationErrors {
+    console.log("here1");
+    console.log(this.MatchPassword[0]);
+    console.log(this.MatchPassword[1]);
+    console.log("here2");
     return this.customValidator.MatchPassword(this.MatchPassword[0], this.MatchPassword[1])(formGroup);
+    
   }
 }
