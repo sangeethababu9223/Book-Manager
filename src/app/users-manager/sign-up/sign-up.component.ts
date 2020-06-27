@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RootService } from '../../services/root.service';
 @Component({
   selector: 'app-sign-up',
@@ -15,24 +15,9 @@ export class SignUpComponent implements OnInit {
     password : new FormControl(''),
     cpassword : new FormControl(''),
   });
-  userForm = this.fb.group({
-    fname: ['', Validators.required],
-    lname: ['', Validators.required],
-    user: ['', Validators.required],  
-    password: [''],
-    cpassword: [''],
-    aliases: this.fb.array([
-      this.fb.control('')
-    ])
-  });
-  get aliases() {
-    return this.userForm.get('aliases') as FormArray;
-  }
-  addAlias() {
-    this.aliases.push(this.fb.control(''));
-  }
+  
   // newUser = new Users('','','','','');
-  constructor(private rootService : RootService, private fb: FormBuilder) {
+  constructor(private rootService : RootService) {
     
    }
   ngOnInit(): void {  
