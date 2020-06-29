@@ -48,4 +48,7 @@ export class BookComponent implements OnInit {
   removeBook(){
     window.alert('Remove book');
   }
+  updateBook() {
+    console.log('Update Book');
+  }
 }

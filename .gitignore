@@ -1,4 +1,5 @@
 node_modules/
+src/assets/Uploads/
 backend/node_modules/
 backend/.env
 backend/.nyc_output/

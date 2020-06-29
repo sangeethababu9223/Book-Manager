@@ -30,14 +30,23 @@
       <button type="submit" class="btn btn-primary">Submit</button>
 
     </form>
-   
+   <div class="book__container">
     <h2>Books</h2>
-    <div *ngFor="let book of books">
-      <h4>
-          {{ book.title }}
-      </h4>
-      <p *ngIf="book.blurb">
-         Summary: {{book.blurb}}
-      </p>
-      <button class="btn btn-primary" (click)="removeBook()">Remove</button>
-  </div>
+    <div class="row">
+      <div *ngFor="let book of books" class="col-md-4">
+        <div class="card book__item">
+          <div class="card-body">
+            <img src="assets/Uploads/the-henna-wars.jpg" alt="">
+            <h4 class="card-title">
+              {{ book.title }}
+            </h4>
+            <p *ngIf="book.blurb" class="card-text">
+              Summary: {{book.blurb}}
+            </p>
+            <button class="btn btn-primary book__update" (click)="updateBook()">Update Book</button>
+            <button class="btn btn-danger book__delete" (click)="removeBook()">Delete Book</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
