@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
       var newUserItem = {'fname' : fnameval, 'lname' : lnameval, 'user': userval, 'password' : passwordval };
       this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
         console.log(response);
-        this.router.navigate(['/userHome', userval])
+        this.router.navigate(['/userHome'])
       },(error) => {
           console.log('error is ', error)
       });

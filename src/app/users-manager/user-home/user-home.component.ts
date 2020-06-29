@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-user-home',
@@ -9,14 +8,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class UserHomeComponent implements OnInit {
   user : string;
   constructor(
-    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.user = params['user'];
-      console.log(params);
-    });
+    
   }
 
 }
