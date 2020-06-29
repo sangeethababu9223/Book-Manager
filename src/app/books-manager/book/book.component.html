@@ -40,6 +40,9 @@
             <h4 class="card-title">
               {{ book.title }}
             </h4>
+            <h6 class="card-subtitle">
+              {{book.author}}
+            </h6>
             <p *ngIf="book.blurb" class="card-text">
               Summary: {{book.blurb}}
             </p>
