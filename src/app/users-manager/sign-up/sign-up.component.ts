@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
@@ -14,7 +15,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private rootService : RootService, 
     private formBuilder: FormBuilder,
-    private customValidator: CustomvalidationService
+    private customValidator: CustomvalidationService,
+    private router : Router
   ) {
     
    }
@@ -45,6 +47,7 @@ export class SignUpComponent implements OnInit {
       var newUserItem = {'fname' : fnameval, 'lname' : lnameval, 'user': userval, 'password' : passwordval };
       this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
         console.log(response);
+        this.router.navigate(['/userHome', userval])
       },(error) => {
           console.log('error is ', error)
       });

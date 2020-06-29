@@ -1,3 +1,4 @@
+import { UserHomeComponent } from './users-manager/user-home/user-home.component';
 import { BookComponent } from './books-manager/book/book.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './users-manager/login/login.component';
@@ -10,6 +11,10 @@ const routes: Routes = [
   { path: 'books', component: BookComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'userHome/:user', component: UserHomeComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '**', component: HomeComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
