@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
 import { UploadService } from './../../services/upload.service';
-
+const URL = 'http://localhost:8080/api/upload';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
