@@ -10,8 +10,11 @@ export class UploadService {
   SERVER_URL: string = "http://localhost:8080";
   constructor(private httpClient: HttpClient) { }
 
-  public upload(data, userId) {
-    let uploadURL = `${this.SERVER_URL}/api/upload`;
+  public upload(data) {
+    //let uploadURL = `${this.SERVER_URL}/api/upload`;
+    let uploadURL = 'http://localhost:3000/v1/upload/';
+    console.log("Uploading");
+    console.log(data.file);
 
     return this.httpClient.post<any>(uploadURL, data, {
       reportProgress: true,

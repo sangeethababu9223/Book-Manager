@@ -3,13 +3,14 @@ import bodyParser from 'body-parser';
 import { indexPage, booksPage, addBook, addUser, bookUploads } from '../controllers';
 import multer from 'multer';
 const indexRouter = express.Router();
-
+const PATH = './uploads'; 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, PATH);
     },
     filename: (req, file, cb) => {
-      cb(null, file.fieldname + '-' + Date.now())
+      console.log(file.originalname);
+      cb(null, file.originalname)
     }
   });
 let upload = multer({
@@ -20,5 +21,5 @@ indexRouter.get('/', indexPage);
 indexRouter.get('/books', booksPage);
 indexRouter.post('/books', bodyParser.json(), addBook);
 indexRouter.post('/users', bodyParser.json(), addUser);
-indexRouter.post('/api/upload', upload.single('image'), bookUploads);
+indexRouter.post('/upload', upload.single('file'), bookUploads);
 export default indexRouter;

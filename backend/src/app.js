@@ -10,7 +10,6 @@ import bodyParser from 'body-parser';
 import './models/connect';
 
 // File upload settings  
-const PATH = './uploads'; 
 
 const app = express();
 app.use(logger('dev'));
@@ -32,10 +31,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Create PORT
-const PORT = process.env.PORT || 8080;
-const server = app.listen(PORT, () => {
-  console.log('Connected to port ' + PORT)
-})
+// const PORT = process.env.PORT || 8080;
+// const server = app.listen(PORT, () => {
+//   console.log('Connected to port ' + PORT)
+// })
 
 // Find 404 and hand over to error handler
 // app.use((req, res, next) => {
@@ -49,5 +48,7 @@ app.use(function (err, req, res, next) {
   res.status(err.statusCode).send(err.message);
 }); 
 
+
 app.use('/v1', indexRouter);
+
 export default app;
