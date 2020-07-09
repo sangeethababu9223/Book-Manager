@@ -17,7 +17,7 @@ describe('booklists', () => {
   });
 
   it('posts booklists', done => {
-    const data = { title: 'some name', author: 'new message', category: 'some category', ISBN: 'some isbn', blurb : 'some blurb'  };
+    const data = { title: 'some name', author: 'new message', category: 'some category', blurb : 'some blurb', cover : 'some_cover.jpg'  };
     server
       .post(`${BASE_URL}/books`)
       .send(data)

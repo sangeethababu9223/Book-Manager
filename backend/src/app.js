@@ -12,6 +12,7 @@ import './models/connect';
 // File upload settings  
 
 const app = express();
+const staticapp = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,8 +48,10 @@ app.use(function (err, req, res, next) {
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message);
 }); 
-
-
+app.use(express.static('uploads'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
+var server = app.listen(5000);
 app.use('/v1', indexRouter);
+
 
 export default app;
