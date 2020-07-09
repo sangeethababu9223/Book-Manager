@@ -9,7 +9,7 @@ let storage = multer.diskStorage({
       cb(null, PATH);
     },
     filename: (req, file, cb) => {
-      console.log(file.originalname);
+      console.log(file);
       cb(null, file.originalname)
     }
   });

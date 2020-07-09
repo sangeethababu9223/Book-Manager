@@ -9,7 +9,6 @@ import { CustomvalidationService } from './../../services/customvalidation.servi
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  
   userForm : FormGroup;
   submitted = false;  
   constructor(

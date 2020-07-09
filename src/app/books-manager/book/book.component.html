@@ -39,11 +39,6 @@
         formControlName="category">
       </div>
       <div class="form-group">
-        <label for="alterEgo">ISBN</label>
-        <input type="text" class="form-control" id="isbn" name="isbn"
-        formControlName="ISBN">
-      </div>
-      <div class="form-group">
         <label for="alterEgo">Blurb</label>
         <textarea name="blurb"  class="form-control" id="blurb" cols="30" rows="10"
         formControlName="blurb"></textarea>
@@ -64,7 +59,7 @@
       <div *ngFor="let book of books" class="col-md-4">
         <div class="card book__item">
           <div class="card-body">
-            <img src="assets/Uploads/the-henna-wars.jpg" alt="">
+            <img src="{{imageUrl}}/{{book.cover}}" alt="">
             <h4 class="card-title">
               {{ book.title }}
             </h4>

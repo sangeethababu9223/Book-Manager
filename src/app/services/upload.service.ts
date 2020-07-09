@@ -13,9 +13,8 @@ export class UploadService {
   public upload(data) {
     //let uploadURL = `${this.SERVER_URL}/api/upload`;
     let uploadURL = 'http://localhost:3000/v1/upload/';
-    console.log("Uploading");
-    console.log(data.file);
-
+    console.log('Meow');
+    console.log(data);  
     return this.httpClient.post<any>(uploadURL, data, {
       reportProgress: true,
       observe: 'events'

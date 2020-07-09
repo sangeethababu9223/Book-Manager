@@ -11,6 +11,7 @@ import { UploadService } from './../../services/upload.service';
 })
 export class BookComponent implements OnInit {
   // books = books;
+  readonly imageUrl = "http://localhost:5000/";
   submitted = false;
   error;
   userId: number = 1;
@@ -32,7 +33,6 @@ export class BookComponent implements OnInit {
       title : ['',Validators.required],
       author : ['',Validators.required],
       category : [''],
-      ISBN : [''],
       blurb : [''],
       cover : [],
     });
@@ -48,12 +48,14 @@ export class BookComponent implements OnInit {
     var titleval = this.booksForm.value.title;;
     var authorval = this.booksForm.value.author;
     var catval = this.booksForm.value.category;
-    var isbnval = this.booksForm.value.ISBN;
     var blurbval = this.booksForm.value.blurb;
     var coverval = this.booksForm.value.cover;
-    var filename = coverval.replace(/^.*[\\\/]/, '')
-
-    var newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'ISBN' : isbnval, 'blurb' : blurbval};
+    var filename = coverval.replace(/^.*[\\\/]/, '');
+    var fileExt = filename.split('.').pop();
+    var time =new Date();
+    var vartime = time.getTime();
+    var covername = (titleval.split(' ').join('_'))+'_'+(authorval.split(' ').join('_'))+vartime+"."+fileExt;
+    var newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'blurb' : blurbval, 'cover' : covername};
     this.rootService.postAPIData(newBookItem).subscribe((response)=>{
       console.log(response);
       this.getBooks();
@@ -62,14 +64,7 @@ export class BookComponent implements OnInit {
     });
     
     const formData = new FormData();
-    console.log("lets se");
-    console.log(this.booksForm.get('cover').value);
-    formData.append('file', this.booksForm.get('cover').value);
-    // formData.append('newlo', "manjin koodaram");
-    // var options = { content: formData };
-    // console.log(options);
-    // console.log('upping');
-    // console.log(this.booksForm);
+    formData.append('file', this.booksForm.get('cover').value , covername );
     this.uploadService.upload(formData).subscribe(
       (res) => this.uploadResponse = res,
       (err) => this.error = err
@@ -80,8 +75,6 @@ export class BookComponent implements OnInit {
     this.rootService.getAPIData().subscribe((response)=>{
       console.log(response);
       this.books = response['booklists'];
-      console.log("Books Here..!!");
-      console.log(this.books);
     },(error) => {
         console.log('error is ', error)
     });
@@ -95,8 +88,6 @@ export class BookComponent implements OnInit {
   onFileChange(event) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
-      console.log(this.booksForm.get('cover'));
       this.booksForm.get('cover').setValue(file);
     }
   }
