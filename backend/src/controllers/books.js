@@ -1,5 +1,6 @@
 import { BookLists } from '../models/booklists';
-
+import fs from 'fs';
+import { appbasedirectory } from '../settings';
 export const booksPage = async (req, res, next) => {
   try {
     // console.log(BookLists.find());
@@ -23,21 +24,26 @@ export const updateBook = async (req, res, next) => {
   const resval = req.body;
   console.log(resval);
   try {
-    const m = await BookLists({ title, author, category, blurb, cover }).save();
+    const m = await BookLists.updateOne(resval.original, resval.updated);;
     res.status(201).json({ success: true, book: m });
-    console.log(resval);
+    // console.log(resval);
+    // console.log('sucsece');
   } catch (err) {
     next(err);
-    console.log(resval);
+    // console.log(resval);
+    // console.log('no sucsece');
   }
 };
 
 export const removeBook = async (req, res, next) => {
   const coverval = req.body;
   try {
-    const m = await BookLists.remove(coverval);
+    const m = await BookLists.deleteOne(coverval);
     res.status(201).json({ success: true, book: m });
   } catch (err) {
     next(err);
   }
+  var filePath = appbasedirectory+'/uploads/'+coverval.cover; 
+  fs.unlinkSync(filePath);
+
 };

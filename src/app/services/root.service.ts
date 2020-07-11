@@ -18,10 +18,12 @@ export class RootService {
       return this.http.post('http://localhost:3000/v1/users/', newItem);
     }
   }
-  postAPIUpdateData(updateItem,postAPIData){
+  postAPIUpdateData(updateItem,originalItem){
+    console.log("originalItem");
+    console.log(originalItem);
     var query = {
       'updated' : updateItem,
-      'original' :postAPIData,
+      'original' : originalItem,
     }
     return this.http.post('http://localhost:3000/v1/updateBooks/', query);
   }

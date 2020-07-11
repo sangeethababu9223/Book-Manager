@@ -52,40 +52,35 @@ export class BookComponent implements OnInit {
     return this.booksForm.controls; 
   }
   addBooks() {
-    console.log('top');
     this.submitted = true;
     var titleval = this.booksForm.value.title;;
     var authorval = this.booksForm.value.author;
     var catval = this.booksForm.value.category;
     var blurbval = this.booksForm.value.blurb;
     var coverval = this.booksForm.value.cover;
-    console.log('here');
+    var newBookItem;
     if(coverval!=""){
       var filename = coverval.replace(/^.*[\\\/]/, '');
       var fileExt = filename.split('.').pop();
-      var time =new Date();
-      var vartime = time.getTime();
-      var covername = (titleval.split(' ').join('_'))+'_'+(authorval.split(' ').join('_'))+vartime+"."+fileExt;
+      var covername = (titleval.split(' ').join('_'))+'_'+(authorval.split(' ').join('_'))+"."+fileExt;
       const formData = new FormData();
       formData.append('file', this.booksForm.get('cover').value , covername );
       this.uploadService.upload(formData).subscribe(
         (res) => this.uploadResponse = res,
         (err) => this.error = err
       );   
-      var newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'blurb' : blurbval, 'cover' : covername};
+      newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'blurb' : blurbval, 'cover' : covername};
     }
     else {
-      var newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'blurb' : blurbval, 'cover' : ''};
+      newBookItem = {'title' : titleval, 'author' : authorval, 'category': catval, 'blurb' : blurbval};
     }
-
-    console.log("update ior not : " + this.updating);
 
     if(this.updating){
       console.log("Original");
       console.log(this.booksOrgForm);
       var orgcoverval = this.booksOrgForm.value.cover;
-      var queryUpdate = {'cover': orgcoverval};
-      this.rootService.postAPIUpdateData(newBookItem, queryUpdate).subscribe((response)=>{
+      var originalData = {'cover': orgcoverval};
+      this.rootService.postAPIUpdateData(newBookItem, originalData).subscribe((response)=>{
         console.log(response);
         this.getBooks();
         this.updating = false;
@@ -128,7 +123,7 @@ export class BookComponent implements OnInit {
     this.booksForm.get('author').setValue(book.author);
     this.booksForm.get('category').setValue(book.category);
     this.booksForm.get('blurb').setValue(book.blurb);
-    this.booksForm.get('cover').setValue(book.cover);
+    this.booksForm.get('cover').setValue('');
 
     this.booksOrgForm.get('title').setValue(book.title);
     this.booksOrgForm.get('author').setValue(book.author);
