@@ -18,4 +18,14 @@ export class RootService {
       return this.http.post('http://localhost:3000/v1/users/', newItem);
     }
   }
+  postAPIUpdateData(updateItem,postAPIData){
+    var query = {
+      'updated' : updateItem,
+      'original' :postAPIData,
+    }
+    return this.http.post('http://localhost:3000/v1/updateBooks/', query);
+  }
+  removeAPIData(book){
+    return this.http.post('http://localhost:3000/v1/removeBooks/', book);
+  }
 }

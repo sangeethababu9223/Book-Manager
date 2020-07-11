@@ -8,4 +8,15 @@
     &__update {
         margin-right: 20px;
     }
+    &__cover {
+        max-width: 100%;
+        height: auto;
+    }
+    &__main-title {
+        font-size: 20px;
+        margin-top: 40px;
+    }
+    &__sub-title {
+        font-size: 14px;
+    }
 }
