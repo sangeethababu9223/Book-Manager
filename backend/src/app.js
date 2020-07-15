@@ -8,9 +8,12 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 // import createError from 'createerror';
 import './models/connect';
+import passport from 'passport';
+import Localpassport from 'passport-local';
+
 
 // File upload settings  
-
+const LocalStrategy = Localpassport.Strategy;
 const app = express();
 const staticapp = express();
 app.use(logger('dev'));
@@ -41,8 +44,30 @@ app.use(bodyParser.urlencoded({
 // app.use((req, res, next) => {
 //   next(createError(404));
 // });
+passport.serializeUser(function(user, done) {
+  if(user) done(null, user);
+});
+
+passport.deserializeUser(function(id, done) {
+  done(null, id);
+});
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+      if(username === "admin" && password === "admin"){
+          return done(null, username);
+      } else {
+          return done("unauthorized access", false);
+      }
+  }
+));
+
+
+
 
 // error handler
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(function (err, req, res, next) {
   console.error(err.message);
   if (!err.statusCode) err.statusCode = 500;

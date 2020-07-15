@@ -9,3 +9,7 @@ export const addUser = async (req, res, next) => {
     next(err);
   }
 };
+
+export const authenticateLog = (req, res) => {
+  res.status(200).json({"statusCode" : 200 ,"message" : "hello"});
+};
