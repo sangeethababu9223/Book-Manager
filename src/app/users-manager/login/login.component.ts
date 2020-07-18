@@ -48,8 +48,9 @@ export class LoginComponent implements OnInit {
       // });
       this.authService.validate(userItem)
       .then((response) => {
+        console.log(response);
         this.authService.setUserInfo({'user' : response['user']});
-        this.router.navigate(['/books']);
+        // this.router.navigate(['/books']);
         console.log('one');
       },(error) => {
         console.log('error is ', error);

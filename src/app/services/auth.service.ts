@@ -24,4 +24,10 @@ export class AuthService {
   public validate(userItem) {
     return this.http.post('http://localhost:3000/v1/authenticate', userItem).toPromise()
   }
+  public logout() {
+    console.log("out");
+    let userData = localStorage.getItem('userInfo');
+    console.log(userData);
+    return this.http.get('http://localhost:3000/v1/logout').toPromise()
+  }
 }

@@ -1,0 +1,25 @@
+.book__container {
+  margin-top: 20px;
+}
+
+.book__item {
+  margin-bottom: 20px;
+}
+
+.book__update {
+  margin-right: 20px;
+}
+
+.book__cover {
+  max-width: 100%;
+  height: auto;
+}
+
+.book__main-title {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.book__sub-title {
+  font-size: 14px;
+}
