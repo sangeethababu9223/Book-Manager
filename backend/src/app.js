@@ -53,7 +53,8 @@ passport.deserializeUser(function(id, done) {
 });
 passport.use(new LocalStrategy(
   function(username, password, done) {
-      if(username === "admin" && password === "admin"){
+    console.log('Reaches in authen');
+      if(username === "admin" && password === "Admin123$"){
           return done(null, username);
       } else {
           return done("unauthorized access", false);

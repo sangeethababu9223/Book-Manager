@@ -21,7 +21,7 @@ export class AuthService {
     localStorage.setItem('userInfo', JSON.stringify(user));
   }
 
-  public validate(email, password) {
-    return this.http.post('/v1/authenticate', {'username' : email, 'password' : password}).toPromise()
+  public validate(userItem) {
+    return this.http.post('http://localhost:3000/v1/authenticate', userItem).toPromise()
   }
 }
