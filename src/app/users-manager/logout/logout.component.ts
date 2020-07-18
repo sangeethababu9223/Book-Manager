@@ -14,13 +14,7 @@ export class LogoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authService.logout()
-    .then((response) => {
-      // this.router.navigate(['/books'])
-    },(error) => {
-      console.log('error is ', error);
-      // console.log('two');
-  });
+    localStorage.removeItem('userInfo');
   }
 
 }
