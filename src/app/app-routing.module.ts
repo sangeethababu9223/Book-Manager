@@ -1,3 +1,4 @@
+import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { UserHomeComponent } from './users-manager/user-home/user-home.component';
 import { BookComponent } from './books-manager/book/book.component';
 import { HomeComponent } from './home/home.component';
@@ -8,7 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'books', component: BookComponent },
+  { path: 'books', component: BookComponent, canActivate : [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'userHome/:user', component: UserHomeComponent },
