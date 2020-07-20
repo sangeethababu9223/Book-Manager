@@ -10,6 +10,7 @@ import bodyParser from 'body-parser';
 import './models/connect';
 import passport from 'passport';
 import Localpassport from 'passport-local';
+import { UserLists } from './models/userlists';
 
 
 // File upload settings  
@@ -53,12 +54,18 @@ passport.deserializeUser(function(id, done) {
 });
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    console.log('Reaches in authen');
-      if(username === "admin" && password === "Admin123$"){
-          return done(null, username);
-      } else {
+      UserLists.findOne({},{user:username, password:password}, function(err, result) {
+        if(err){
+          throw err;
           return done("unauthorized access", false);
-      }
+        }else{
+          console.log(result.name);
+          return done(null, username);
+        }
+      });
+      // if(username === "admin" && password === "Admin123$"){
+      // } else {
+      // }
   }
 ));
 
