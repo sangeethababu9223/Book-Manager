@@ -63,9 +63,6 @@ passport.use(new LocalStrategy(
           return done(null, username);
         }
       });
-      // if(username === "admin" && password === "Admin123$"){
-      // } else {
-      // }
   }
 ));
 

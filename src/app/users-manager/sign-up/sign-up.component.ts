@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
 import { CustomvalidationService } from './../../services/customvalidation.service';
+import { AuthService } from './../../services/auth.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -12,6 +13,7 @@ export class SignUpComponent implements OnInit {
   userForm : FormGroup;
   submitted = false;  
   constructor(
+    private authService : AuthService, 
     private rootService : RootService, 
     private formBuilder: FormBuilder,
     private customValidator: CustomvalidationService,
@@ -46,7 +48,8 @@ export class SignUpComponent implements OnInit {
       var newUserItem = {'fname' : fnameval, 'lname' : lnameval, 'user': userval, 'password' : passwordval };
       this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
         console.log(response);
-        this.router.navigate(['/userHome'])
+        this.authService.setUserInfo({'user' : response['user']});
+        this.router.navigate(['/books']);
       },(error) => {
           console.log('error is ', error)
       });
