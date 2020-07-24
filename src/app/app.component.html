@@ -3,9 +3,9 @@
         <ul class="navigation__container">
           <li  class="navigation__item"><a routerLink="/home" routerLinkActive="active" class="navigation__link">Home</a></li>
           <li  class="navigation__item"><a routerLink="/books" routerLinkActive="active" class="navigation__link">Books</a></li>
-          <li  class="navigation__item"><a routerLink="/login" routerLinkActive="active" class="navigation__link">Login</a></li>
-          <li  class="navigation__item"><a routerLink="/signup" routerLinkActive="active" class="navigation__link">Sign Up</a></li>
-          <li  class="navigation__item"><a routerLink="/logout" routerLinkActive="active" class="navigation__link">Log Out</a></li>
+          <li  class="navigation__item" *ngIf="!loggedIn"><a routerLink="/login" routerLinkActive="active" class="navigation__link">Login</a></li>
+          <li  class="navigation__item" *ngIf="!loggedIn"><a routerLink="/signup" routerLinkActive="active" class="navigation__link">Sign Up</a></li>
+          <li  class="navigation__item" *ngIf="loggedIn"><a routerLink="/logout" routerLinkActive="active" class="navigation__link">Log Out</a></li>
         </ul>
       </nav>
       <div class="clear"></div>
