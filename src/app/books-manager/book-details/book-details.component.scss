@@ -1,0 +1,13 @@
+.bookDetail {
+    &__cover {
+        width: 100%;
+        height: auto;
+    }
+    &__meta {
+        font-weight: bold;
+        font-size: 20px;
+    }
+    &__category {
+        text-align: right;
+    }
+}

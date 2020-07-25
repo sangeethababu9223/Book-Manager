@@ -1,1 +1,24 @@
-/* No CSS */
+.home__image {
+  max-width: 100%;
+  width: auto;
+}
+
+.home__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-style: italic;
+}
+
+.home__right p {
+  font-size: 26px;
+  line-height: 36px;
+}
+
+.home__right span {
+  display: block;
+  margin-top: 10px;
+}

@@ -34,4 +34,7 @@ export class RootService {
   //   return this.http.post('http://localhost:3000/v1/users/', userItem);
 
   // }
+  postAPIsingleBook(singleBook){
+    return this.http.post('http://localhost:3000/v1/bookOne/', singleBook);
+  }
 }

@@ -10,6 +10,19 @@ export const booksPage = async (req, res, next) => {
     next(err);
   }
 };
+export const bookDetails = async (req, res, next) => {
+  try {
+    // console.log(BookLists.find());
+    const bookitem = req.body;
+    const booklists = await BookLists.findOne({_id:bookitem._id}, function(err, result) {
+      if (err) throw err;
+      
+    });
+    res.status(200).json(booklists);
+  } catch (err) {
+    next(err);
+  }
+};
 
 export const addBook = async (req, res, next) => {
   const { title, author, category, blurb, cover } = req.body;

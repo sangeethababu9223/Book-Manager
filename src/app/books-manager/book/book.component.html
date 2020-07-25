@@ -65,9 +65,9 @@
 
             </div>
             <!-- <img src="{{imageUrl}}/{{book.cover}}" alt="" class="book__cover"> -->
-            <h4 class="card-title book__main-title">
+            <a class="card-title book__main-title" routerLink="/bookdetails/{{book._id}}">
               {{ book.title }}
-            </h4>
+            </a>
             <h6 class="card-subtitle book__sub-title">
               {{book.author}}
             </h6>

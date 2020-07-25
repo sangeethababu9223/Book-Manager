@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { indexPage, booksPage, addBook, removeBook, updateBook, addUser, authenticateLog, bookUploads } from '../controllers';
+import { indexPage, booksPage, addBook, removeBook, updateBook, bookDetails, addUser, authenticateLog, bookUploads } from '../controllers';
 import multer from 'multer';
 import passport from 'passport';
 
@@ -39,6 +39,7 @@ const auth = () => {
 indexRouter.get('/', indexPage);
 indexRouter.get('/books', booksPage);
 indexRouter.post('/books', bodyParser.json(), addBook);
+indexRouter.post('/bookOne', bodyParser.json(), bookDetails);
 indexRouter.post('/removeBooks', bodyParser.json(), removeBook);
 indexRouter.post('/updateBooks', bodyParser.json(), updateBook);
 indexRouter.post('/users', bodyParser.json(), addUser);
