@@ -20,13 +20,13 @@ html{
     }
     &__link {
         padding: 10px 20px;
-        font-size: 1.25rem;
         text-decoration: none;
-        background: #000;
-        color: #fff;
         margin-right: 15px;
+        color: #000;
+        font-size: 27px;
+        font-family: 'Poiret One', cursive;
         &:hover {
-            text-decoration: none;
+            color: #ccc;
         }
     }
     &--main {

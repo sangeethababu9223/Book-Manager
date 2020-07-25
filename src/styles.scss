@@ -1,38 +1,55 @@
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$book-list-primary: mat-palette($mat-indigo);
-$book-list-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$book-list-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$book-list-theme: mat-light-theme($book-list-primary, $book-list-accent, $book-list-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($book-list-theme);
 
 @import "~bootstrap/dist/css/bootstrap.css";
 html, body { height: 100%; }
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-family: 'Poiret One', cursive;
     // background-color: rgba(244,241,234,0.5);
 }
 .form-control {
     background-color: transparent;
+}
+.bibliophile {
+    &__heading {
+        font-size: 30px !important;
+        margin-bottom: 30px !important;
+        padding: 15px 0;
+        border-top: solid 1px #ccc;
+        border-bottom: solid 1px #ccc;
+        text-align: center;
+        font-family: "Poiret One", cursive !important;
+    }
+}
+form {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    label {
+        font-size: 20px;
+    }
+    .btn-primary {
+        font-size: 20px;
+    }
 }

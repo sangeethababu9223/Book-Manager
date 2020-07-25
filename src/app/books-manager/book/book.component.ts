@@ -38,14 +38,16 @@ export class BookComponent implements OnInit {
       title : ['',Validators.required],
       author : ['',Validators.required],
       category : [''],
-      blurb : [''],
+      blurb : ['',[Validators.minLength(20), 
+        Validators.maxLength(400)]],
       cover : [],
     });
     this.booksOrgForm = this.formBuilder.group({
       title : ['',Validators.required],
       author : ['',Validators.required],
       category : [''],
-      blurb : [''],
+      blurb : ['',[Validators.minLength(20), 
+        Validators.maxLength(400)]],
       cover : [],
     });
   }
