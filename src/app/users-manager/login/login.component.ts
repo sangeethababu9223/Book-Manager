@@ -50,7 +50,10 @@ export class LoginComponent implements OnInit {
       .then((response) => {
         console.log(response);
         this.authService.setUserInfo({'user' : response['user']});
-        this.router.navigate(['/books']);
+        this.router.navigate(['/books'])
+        .then(() => {
+          window.location.reload();
+        });
         console.log('one');
       },(error) => {
         console.log('error is ', error);

@@ -1,0 +1,19 @@
+.home {
+    &__image {
+        max-width: 100%;
+        width: auto;
+    }
+    &__right {
+        display: flex;
+        align-items: center;
+        font-style: italic;
+        p {
+            font-size: 26px;
+            line-height: 36px;
+        }
+        span {
+            display: block;
+            margin-top: 10px;
+        }
+    }
+}

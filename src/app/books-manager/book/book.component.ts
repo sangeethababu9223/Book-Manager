@@ -1,4 +1,5 @@
 // import { BookInventory } from '../../model/book-inventory';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
@@ -17,11 +18,13 @@ export class BookComponent implements OnInit {
   userId: number = 1;
   uploadResponse = { status: '', message: '', filePath: '' };
   books;
+  loggedIn;
   booksForm : FormGroup;
   booksOrgForm : FormGroup;
   // newBook = new BookInventory('','','','','');
   constructor(
       private rootService : RootService,
+      private authService : AuthService,
       private formBuilder: FormBuilder,
       private uploadService : UploadService
     ) {
@@ -30,6 +33,7 @@ export class BookComponent implements OnInit {
   
   ngOnInit(): void {
     this.getBooks();
+    this.loggedIn = this.authService.isAuthenticated();
     this.booksForm = this.formBuilder.group({
       title : ['',Validators.required],
       author : ['',Validators.required],

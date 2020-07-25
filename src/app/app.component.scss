@@ -29,4 +29,20 @@ html{
             text-decoration: none;
         }
     }
+    &--main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.container {
+    &--1400{
+        max-width: 100%;
+        width: 1400px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

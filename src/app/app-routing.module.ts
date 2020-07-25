@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'books', component: BookComponent, canActivate : [AuthGuard]},
+  { path: 'books', component: BookComponent},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'logout', component: LogoutComponent },

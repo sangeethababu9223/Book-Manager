@@ -28,4 +28,11 @@ $book-list-theme: mat-light-theme($book-list-primary, $book-list-accent, $book-l
 
 @import "~bootstrap/dist/css/bootstrap.css";
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    // background-color: rgba(244,241,234,0.5);
+}
+.form-control {
+    background-color: transparent;
+}

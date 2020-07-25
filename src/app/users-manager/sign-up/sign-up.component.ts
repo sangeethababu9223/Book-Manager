@@ -49,7 +49,10 @@ export class SignUpComponent implements OnInit {
       this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
         console.log(response);
         this.authService.setUserInfo({'user' : response['user']});
-        this.router.navigate(['/books']);
+        this.router.navigate(['/books'])
+        .then(() => {
+          window.location.reload();
+        });
       },(error) => {
           console.log('error is ', error)
       });
