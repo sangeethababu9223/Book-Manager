@@ -17,10 +17,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem('userInfo');
-    this.router.navigate(['/login'])
-    .then(() => {
-      window.location.reload();
-    }); 
+    this.router.navigate(['/home']); 
     this.toastr.success("Logged out Succesfully");
   }
 

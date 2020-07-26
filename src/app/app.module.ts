@@ -1,3 +1,4 @@
+import { SharedItemsModule } from './shared-items/shared-items.module';
 import { UsersManagerModule } from './users-manager/users-manager.module';
 import { BooksManagerModule } from './books-manager/books-manager.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,8 +24,9 @@ import { ToastrModule } from 'ngx-toastr';
     UsersManagerModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    SharedItemsModule,
     ToastrModule.forRoot() 
-  ],  
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
