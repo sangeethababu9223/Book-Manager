@@ -5,6 +5,9 @@
     &__item {
         margin-bottom: 20px;
         min-height: 836px;
+        &.active {
+            min-height: 850px;
+        }
     }
     &__item-container {
         display: flex;
@@ -38,12 +41,14 @@
         font-weight: 300;
         line-height: 26px;
     }
-    // &__page-title {
-    //     font-size: 30px;
-    //     margin-bottom: 30px;
-    //     padding: 15px 0;
-    //     border-top: solid 1px #ccc;
-    //     border-bottom: solid 1px #ccc;
-    //     text-align: center;
-    // }
+    &__add-main-button {
+        float: right;
+    }
+    &__add-main-button-container {
+        margin-bottom: 20px;
+    }
+    &__cancel-button {
+        font-size: 20px;
+        margin-left: 20px;
+    }
 }

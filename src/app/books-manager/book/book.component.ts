@@ -14,6 +14,7 @@ export class BookComponent implements OnInit {
   readonly imageUrl = "http://localhost:5000/";
   submitted = false;
   updating = false ;
+  enableaddBooks = false;
   error;
   userId: number = 1;
   uploadResponse = { status: '', message: '', filePath: '' };
@@ -59,6 +60,7 @@ export class BookComponent implements OnInit {
   }
   addBooks() {
     this.submitted = true;
+    this.enableaddBooks =false;
     var titleval = this.booksForm.value.title;;
     var authorval = this.booksForm.value.author;
     var catval = this.booksForm.value.category;
@@ -124,6 +126,7 @@ export class BookComponent implements OnInit {
   }
   updateBook(book) {
     this.updating = true; 
+    this.enableaddBooks =true;
     window.scroll(0,0);
     this.booksForm.get('title').setValue(book.title);
     this.booksForm.get('author').setValue(book.author);
@@ -143,5 +146,11 @@ export class BookComponent implements OnInit {
       const file = event.target.files[0];
       this.booksForm.get('cover').setValue(file);
     }
+  }
+  enableAddBooks() {
+    this.enableaddBooks =true;
+  }
+  cancelAddBooks() {
+    this.enableaddBooks =false;
   }
 }

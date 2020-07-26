@@ -47,9 +47,15 @@ form {
     margin-top: 60px;
     margin-bottom: 50px;
     label {
-        font-size: 20px;
+        font-size: 22px;
     }
     .btn-primary {
-        font-size: 20px;
+        font-size: 22px;
+    }
+    .form-control {
+        font-size: 22px;
+    }
+    .text-danger {
+        font-size: 18px;
     }
 }

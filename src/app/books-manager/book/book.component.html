@@ -1,4 +1,4 @@
-<div class="books__add-container" *ngIf="loggedIn">
+<div class="books__add-container" *ngIf="enableaddBooks">
   <h2 class="bibliophile__heading">Add Books</h2>
       <div class="Status-message">
         <div *ngIf="error" class="error">
@@ -52,14 +52,19 @@
         </div>
        
         <button type="submit" class="btn btn-primary">Submit</button>
-  
+        <button class="btn btn-danger book__cancel-button" (click)="cancelAddBooks()">Cancel</button>
       </form>
     </div> 
-   <div class="book__container">
+   <div class="book__container" *ngIf="!enableaddBooks">
     <h1 class="book__page-title bibliophile__heading">Books</h1>
+    <div class="row"  *ngIf="loggedIn">
+      <div class="col-12 book__add-main-button-container">
+        <button class="btn btn-primary book__add-main-button" (click)="enableAddBooks()">Add new book</button>
+      </div>
+    </div>
     <div class="row">
       <div *ngFor="let book of books" class="col-md-3">
-        <div class="card book__item">
+        <div class="card book__item" [class.active]="loggedIn">
           <div class="card-body book__item-container">
             <div class="book__cover" style="background-image:url({{imageUrl}}/{{book.cover}})">
 

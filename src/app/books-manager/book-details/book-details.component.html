@@ -1,23 +1,20 @@
 <div class="bookDetail row">
-    <div class="col-12">
-        <h1 class="bookDetail__heading bibliophile__heading">
-            {{bookDetail.title}}
-        </h1>
-    </div>
     <div class="col-md-3 bookDetail__left-container">
         <img src="{{imageUrl}}/{{bookDetail.cover}}" alt="" class="bookDetail__cover">
     </div>
     <div class="col-md-9 bookDetail__right-container">
-        
+        <h1 class="bookDetail__heading bibliophile__heading">
+            {{bookDetail.title}}
+        </h1>
         <div class="row">
             <div class="col-6">
                 <div class="bookDetail__meta bookDetail__author">
-                    {{bookDetail.author}}
+                    <span class="bookDetail__sub">by</span> {{bookDetail.author}}
                 </div>
             </div>
             <div class="col-6">
                 <div class="bookDetail__meta bookDetail__category">
-                    {{bookDetail.category}}
+                    <span class="bookDetail__sub">in</span> {{bookDetail.category}}
                 </div>
             </div>
         </div>
