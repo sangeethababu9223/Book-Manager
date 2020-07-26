@@ -54,13 +54,15 @@ passport.deserializeUser(function(id, done) {
 });
 passport.use(new LocalStrategy(
   function(username, password, done) {
-      UserLists.findOne({},{user:username, password:password}, function(err, result) {
+      UserLists.findOne({user:username, password:password}, function(err, result) {
         if(err){
           throw err;
           return done("unauthorized access", false);
-        }else{
-          console.log(result.name);
+        }else if(result){
+          console.log(result);
           return done(null, username);
+        }else {
+          return done("unauthorized access", false);
         }
       });
   }

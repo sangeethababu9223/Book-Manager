@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
 import { CustomvalidationService } from './../../services/customvalidation.service';
 import { AuthService } from './../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -17,7 +18,8 @@ export class SignUpComponent implements OnInit {
     private rootService : RootService, 
     private formBuilder: FormBuilder,
     private customValidator: CustomvalidationService,
-    private router : Router
+    private router : Router,
+    private toastr: ToastrService
   ) {
     
    }
@@ -53,8 +55,10 @@ export class SignUpComponent implements OnInit {
         .then(() => {
           window.location.reload();
         });
+        this.toastr.success("Sign Up Succesful");
       },(error) => {
           console.log('error is ', error)
+          this.toastr.error("Sign Up Failed");
       });
     }
     

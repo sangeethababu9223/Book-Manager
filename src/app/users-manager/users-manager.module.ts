@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -15,7 +16,8 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot() 
   ]
 })
 export class UsersManagerModule {

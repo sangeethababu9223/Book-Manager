@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { RootService } from '../../services/root.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CustomvalidationService } from './../../services/customvalidation.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     private router : Router,
     private formBuilder: FormBuilder,
     private customValidator: CustomvalidationService,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -54,10 +55,10 @@ export class LoginComponent implements OnInit {
         .then(() => {
           window.location.reload();
         });
-        console.log('one');
+        this.toastr.success("Login Succesful");
       },(error) => {
         console.log('error is ', error);
-        console.log('two');
+        this.toastr.error("Login Failed!");
     });
     }
 

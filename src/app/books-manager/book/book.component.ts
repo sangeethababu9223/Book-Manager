@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
 import { UploadService } from './../../services/upload.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -27,7 +28,8 @@ export class BookComponent implements OnInit {
       private rootService : RootService,
       private authService : AuthService,
       private formBuilder: FormBuilder,
-      private uploadService : UploadService
+      private uploadService : UploadService,
+      private toastr: ToastrService
     ) {
     
   }
@@ -92,15 +94,19 @@ export class BookComponent implements OnInit {
         console.log(response);
         this.getBooks();
         this.updating = false;
+        this.toastr.success("Book Updated!");
       },(error) => {
-          console.log('error is ', error)
+          console.log('error is ', error);
+          this.toastr.error("Book update failed!");
       });
     }else {
       this.rootService.postAPIData(newBookItem).subscribe((response)=>{
         console.log(response);
         this.getBooks();
+        this.toastr.success("New Book Added!");
       },(error) => {
-          console.log('error is ', error)
+          console.log('error is ', error);
+          this.toastr.error("New book adding failed!");
       });
     }
     
@@ -120,6 +126,7 @@ export class BookComponent implements OnInit {
     this.rootService.removeAPIData(bookVal).subscribe((response)=>{
       console.log(response);
       this.getBooks();
+      this.toastr.success("Book Removed!");
     },(error) => {
         console.log('error is ', error)
     });
