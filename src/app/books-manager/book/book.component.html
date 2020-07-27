@@ -67,9 +67,11 @@
       <div *ngFor="let book of books" class="col-md-3">
         <div class="card book__item" [class.active]="loggedIn">
           <div class="card-body book__item-container">
-            <div class="book__cover" style="background-image:url({{imageUrl}}/{{book.cover}})">
+            <a routerLink="/bookdetails/{{book._id}}">
+              <div class="book__cover" style="background-image:url({{imageUrl}}/{{book.cover}})">
 
-            </div>
+              </div>
+            </a>
             <!-- <img src="{{imageUrl}}/{{book.cover}}" alt="" class="book__cover"> -->
             <a class="card-title book__main-title" routerLink="/bookdetails/{{book._id}}">
               {{ book.title }}

@@ -159,5 +159,10 @@ export class BookComponent implements OnInit {
   }
   cancelAddBooks() {
     this.enableaddBooks =false;
+    this.booksForm.get('title').setValue('');
+    this.booksForm.get('author').setValue('');
+    this.booksForm.get('category').setValue('');
+    this.booksForm.get('blurb').setValue('');
+    this.booksForm.get('cover').setValue('');
   }
 }

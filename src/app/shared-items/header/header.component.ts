@@ -17,10 +17,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedIn = this.authService.isAuthenticated()
-    // if(this.loggedIn){
-    //   this.userData= localStorage.getItem('userInfo');
-    //   console.log(typeof this.userData);
-    // }
+    if(this.loggedIn){
+      var userdet = localStorage.getItem('userInfo');
+      var data = JSON.parse(userdet);
+      this.userData= data.user
+      // console.log(data.user);
+    }
   }
 
 }
