@@ -5,12 +5,13 @@ import { FormsModule , ReactiveFormsModule  }   from '@angular/forms';
 import { NormalUserLoginComponent } from './normal-user-login/normal-user-login.component';
 import { NormalUserSignUpComponent } from './normal-user-sign-up/normal-user-sign-up.component';
 import { ToastrModule } from 'ngx-toastr';
+import { NormalUserHOmeComponent } from './normal-user-home/normal-user-home.component';
 
 
 @NgModule({
   declarations: [
     NormalUserLoginComponent, 
-    NormalUserSignUpComponent
+    NormalUserSignUpComponent, NormalUserHOmeComponent
   ],
   imports: [
     CommonModule,

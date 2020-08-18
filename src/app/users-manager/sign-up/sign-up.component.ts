@@ -51,7 +51,7 @@ export class SignUpComponent implements OnInit {
       this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
         console.log(response);
         this.authService.setUserInfo({'user' : response['user']});
-        this.router.navigate(['/userHome']);
+        this.router.navigate(['/adminHome']);
         this.toastr.success("Sign Up Succesful");
       },(error) => {
           console.log('error is ', error)

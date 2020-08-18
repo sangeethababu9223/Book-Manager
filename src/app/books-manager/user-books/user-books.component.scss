@@ -1,0 +1,54 @@
+.book {
+    &__container {
+        margin-top: 20px;
+    }
+    &__item {
+        margin-bottom: 20px;
+        min-height: 836px;
+        &.active {
+            min-height: 850px;
+        }
+    }
+    &__item-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__update {
+        margin-right: 20px;
+    }
+    &__cover {
+        height: 400px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    &__main-title {
+        font-size: 24px;
+        margin-top: 40px;
+        color: #000;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__sub-title {
+        font-size: 18px;
+        color: #777;
+    }
+    &__description {
+        font-size: 16px;
+        line-height: 22px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        line-height: 26px;
+    }
+    &__add-main-button {
+        float: right;
+    }
+    &__add-main-button-container {
+        margin-bottom: 20px;
+    }
+    &__cancel-button {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+}
