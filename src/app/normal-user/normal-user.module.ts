@@ -1,15 +1,23 @@
+import { SharedItemsModule } from './../shared-items/shared-items.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { LogOutComponent } from './log-out/log-out.component';
-import { OrdinaryUserHomeComponent } from './ordinary-user-home/ordinary-user-home.component';
+import { FormsModule , ReactiveFormsModule  }   from '@angular/forms';
+import { NormalUserLoginComponent } from './normal-user-login/normal-user-login.component';
+import { NormalUserSignUpComponent } from './normal-user-sign-up/normal-user-sign-up.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, LogOutComponent, OrdinaryUserHomeComponent],
+  declarations: [
+    NormalUserLoginComponent, 
+    NormalUserSignUpComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedItemsModule,
+    ToastrModule.forRoot() 
   ]
 })
 export class NormalUserModule { }

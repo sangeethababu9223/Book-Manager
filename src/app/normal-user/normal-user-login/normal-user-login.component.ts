@@ -5,12 +5,13 @@ import { RootService } from '../../services/root.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CustomvalidationService } from './../../services/customvalidation.service';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-normal-user-login',
+  templateUrl: './normal-user-login.component.html',
+  styleUrls: ['./normal-user-login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class NormalUserLoginComponent implements OnInit {
   loginForm : FormGroup;
   submitted = false; 
   userEmail : String;
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       var userval = this.loginForm.value.user;
       var passwordval = this.loginForm.value.password;
-      var userItem = {'username': userval, 'password' : passwordval, 'type' : 'admin' };
+      var userItem = {'username': userval, 'password' : passwordval, 'type' : 'normal'  };
       // this.rootService.postAPIData(userItem).subscribe((response)=>{
       //   console.log(response);
       //   this.router.navigate(['/books'])

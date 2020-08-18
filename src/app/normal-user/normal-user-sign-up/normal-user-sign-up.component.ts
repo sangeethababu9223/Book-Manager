@@ -5,12 +5,13 @@ import { RootService } from '../../services/root.service';
 import { CustomvalidationService } from './../../services/customvalidation.service';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-normal-user-sign-up',
+  templateUrl: './normal-user-sign-up.component.html',
+  styleUrls: ['./normal-user-sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class NormalUserSignUpComponent implements OnInit {
   userForm : FormGroup;
   submitted = false;  
   constructor(
@@ -47,7 +48,7 @@ export class SignUpComponent implements OnInit {
       var lnameval = this.userForm.value.lname;
       var userval = this.userForm.value.user;
       var passwordval = this.userForm.value.password;
-      var newUserItem = {'fname' : fnameval, 'lname' : lnameval, 'user': userval, 'password' : passwordval, 'type' : 'admin' };
+      var newUserItem = {'fname' : fnameval, 'lname' : lnameval, 'user': userval, 'password' : passwordval, 'type' : 'normal' };
       this.rootService.postAPIData(newUserItem,"users").subscribe((response)=>{
         console.log(response);
         this.authService.setUserInfo({'user' : response['user']});
@@ -60,6 +61,4 @@ export class SignUpComponent implements OnInit {
     }
     
   }
-  
-   
 }

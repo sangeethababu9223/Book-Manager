@@ -1,6 +1,7 @@
 import { SharedItemsModule } from './shared-items/shared-items.module';
 import { UsersManagerModule } from './users-manager/users-manager.module';
 import { BooksManagerModule } from './books-manager/books-manager.module';
+import { NormalUserModule } from './normal-user/normal-user.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     BooksManagerModule,
     UsersManagerModule,
+    NormalUserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedItemsModule,

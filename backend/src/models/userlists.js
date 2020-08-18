@@ -5,6 +5,7 @@ const usersSchema = new Schema({
   lname: { type: String, required: true },
   user: { type: String, required: true  },
   password: { type: String, required: true  },
+  type: { type: String, required: true  },
 });
 
 export const UserLists = model('userlists', usersSchema);

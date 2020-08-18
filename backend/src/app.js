@@ -52,9 +52,11 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(id, done) {
   done(null, id);
 });
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-      UserLists.findOne({user:username, password:password}, function(err, result) {
+passport.use(new LocalStrategy({ passReqToCallback: true },
+  function(req, username, password, done) {
+    // console.log(req.body.type);
+    var type = req.body.type;
+      UserLists.findOne({user:username, password:password, type: type}, function(err, result) {
         if(err){
           throw err;
           return done("unauthorized access", false);

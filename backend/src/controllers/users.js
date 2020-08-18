@@ -1,9 +1,9 @@
 import { UserLists } from '../models/userlists';
 
 export const addUser = async (req, res, next) => {
-  const { fname, lname, user, password } = req.body;
+  const { fname, lname, user, password,type } = req.body;
   try {
-    const m = await UserLists({ fname, lname, user, password }).save();
+    const m = await UserLists({ fname, lname, user, password,type }).save();
     res.status(201).json({ success: true, user: m.user });
   } catch (err) {
     next(err);

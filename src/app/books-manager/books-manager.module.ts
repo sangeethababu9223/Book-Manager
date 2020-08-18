@@ -7,10 +7,14 @@ import { FormsModule , ReactiveFormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { UserBooksComponent } from './user-books/user-books.component';
+import { UserBookDetailsComponent } from './user-book-details/user-book-details.component';
 @NgModule({
   declarations: [
     BookComponent,
     BookDetailsComponent,
+    UserBooksComponent,
+    UserBookDetailsComponent,
   ],
   imports: [
     CommonModule,
