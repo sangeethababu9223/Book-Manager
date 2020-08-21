@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RatingModule } from 'ng-starrating';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedItemsModule,
+    RatingModule,
     ToastrModule.forRoot() 
   ],
   providers: [],

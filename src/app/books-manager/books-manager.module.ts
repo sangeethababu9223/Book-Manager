@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { UserBooksComponent } from './user-books/user-books.component';
 import { UserBookDetailsComponent } from './user-book-details/user-book-details.component';
+import { RatingModule } from 'ng-starrating';
 @NgModule({
   declarations: [
     BookComponent,
@@ -23,6 +24,7 @@ import { UserBookDetailsComponent } from './user-book-details/user-book-details.
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedItemsModule,
+    RatingModule,
     ToastrModule.forRoot() 
   ]
 })

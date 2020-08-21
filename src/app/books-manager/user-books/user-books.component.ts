@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RootService } from '../../services/root.service';
 import { UploadService } from './../../services/upload.service';
 import { ToastrService } from 'ngx-toastr';
+import { StarRatingComponent } from 'ng-starrating';
 
 @Component({
   selector: 'app-user-books',
@@ -16,6 +17,7 @@ export class UserBooksComponent implements OnInit {
   updating = false ;
   enableaddBooks = false;
   error;
+  totalstar = 5;
   userId: number = 1;
   uploadResponse = { status: '', message: '', filePath: '' };
   books;
@@ -53,5 +55,12 @@ export class UserBooksComponent implements OnInit {
   }
   revieBook(book) {
     console.log(book);
+  }
+  onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
+    // this.totalstar = $event.newValue;
+    // console.log(`Old Value:${$event.oldValue}, 
+    //   New Value: ${$event.newValue}, 
+    //   Checked Color: ${$event.starRating.checkedcolor}, 
+    //   Unchecked Color: ${$event.starRating.uncheckedcolor}`);
   }
 }
