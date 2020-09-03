@@ -37,4 +37,9 @@ export class RootService {
   postAPIsingleBook(singleBook){
     return this.http.post('http://localhost:3000/v1/bookOne/', singleBook);
   }
+
+  postRatingData(newRatingItem){
+    console.log(newRatingItem)
+    return this.http.post('http://localhost:3000/v1/rate/', newRatingItem);
+  }
 }

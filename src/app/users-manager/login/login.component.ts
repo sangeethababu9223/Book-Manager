@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       this.authService.validate(userItem)
       .then((response) => {
         console.log(response);
-        this.authService.setUserInfo({'user' : response['user']});
+        this.authService.setUserInfo({'user' : response['user'], 'id' : response['id']});
         this.router.navigate(['/adminHome']);
         this.toastr.success("Login Succesful");
       },(error) => {

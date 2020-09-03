@@ -61,8 +61,7 @@ passport.use(new LocalStrategy({ passReqToCallback: true },
           throw err;
           return done("unauthorized access", false);
         }else if(result){
-          console.log(result);
-          return done(null, username);
+          return done(null, result);
         }else {
           return done("unauthorized access", false);
         }

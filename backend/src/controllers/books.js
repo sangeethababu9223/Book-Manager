@@ -33,6 +33,7 @@ export const addBook = async (req, res, next) => {
     next(err);
   }
 };
+
 export const updateBook = async (req, res, next) => {
   const resval = req.body;
   console.log(resval);
@@ -60,3 +61,5 @@ export const removeBook = async (req, res, next) => {
   fs.unlinkSync(filePath);
 
 };
+
+
