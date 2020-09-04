@@ -49,12 +49,28 @@ export class UserBooksComponent implements OnInit {
     this.rootService.getAPIData().subscribe((response)=>{
       console.log(response);
       this.books = response['booklists'];
+      this.fetchAverageRating();
     },(error) => {
         console.log('error is ', error)
     });
   }
   revieBook(book) {
     console.log(book);
+  }
+  fetchAverageRating(){
+    console.log('Before avergae rating'); 
+    // console.log(this.books); 
+    for(let book of this.books){
+      console.log(book._id);
+      var bookrating = {'bookid' : book._id};
+      this.rootService.getRatingData(bookrating).subscribe((response)=>{
+        console.log(response);
+        this.toastr.success(" Succesful");
+      },(error) => {
+          console.log('error is ', error)
+          this.toastr.error(" Failed");
+      });
+    }
   }
   onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     // this.totalstar = $event.newValue;

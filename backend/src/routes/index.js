@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { indexPage, booksPage, addBook, removeBook, updateBook, bookDetails, addUser, authenticateLog, bookUploads } from '../controllers';
-import { rateBook } from '../controllers';
+import { rateBook, avergaeRating } from '../controllers';
 import multer from 'multer';
 import passport from 'passport';
 
@@ -47,4 +47,5 @@ indexRouter.post('/users', bodyParser.json(), addUser);
 indexRouter.post('/upload', upload.single('file'), bookUploads);
 indexRouter.post('/authenticate', auth(), authenticateLog);
 indexRouter.post('/rate', bodyParser.json(), rateBook);
+indexRouter.post('/listrate', bodyParser.json(), avergaeRating);
 export default indexRouter;

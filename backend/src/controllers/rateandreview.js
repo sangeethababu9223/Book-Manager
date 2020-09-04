@@ -19,3 +19,17 @@ export const rateBook = async (req, res, next) => {
       next(err);
     }
   };
+  export const avergaeRating = async (req, res, next) => {
+    try {
+      console.log(req.body);
+      const book = req.body;
+      const avgRating = await Ratings.aggregate([
+        {$match : { bookid : book.bookid}},
+        {$group: { _id:null, pop: {$avg:"$value"} } }
+      ])
+      console.log(avgRating)
+      res.status(200).json({ avgRating });
+    } catch (err) {
+      next(err);
+    }
+  };
