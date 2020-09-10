@@ -58,7 +58,7 @@ export const removeBook = async (req, res, next) => {
   }
   var filePath = path.dirname(require.main.filename)+'/uploads/'+coverval.cover; 
   fs.unlinkSync(filePath);
-
+ 
 };
 
 
