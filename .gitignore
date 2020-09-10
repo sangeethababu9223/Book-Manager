@@ -1,6 +1,7 @@
 node_modules/
 src/assets/Uploads/
 backend/node_modules/
+backend/uploads/
+backend/.env
 backend/.nyc_output/
 backend/coverage/
-
