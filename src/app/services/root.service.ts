@@ -42,7 +42,6 @@ export class RootService {
     return this.http.post('http://localhost:3000/v1/rate/', newRatingItem);
   }
   getRatingData(book){
-    console.log(book)
     return this.http.post('http://localhost:3000/v1/listrate/', book);
   }
 }

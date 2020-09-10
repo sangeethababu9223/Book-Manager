@@ -50,6 +50,8 @@ export class UserBooksComponent implements OnInit {
       console.log(response);
       this.books = response['booklists'];
       this.fetchAverageRating();
+      console.log("After Update");
+      console.log(this.books);
     },(error) => {
         console.log('error is ', error)
     });
@@ -60,23 +62,26 @@ export class UserBooksComponent implements OnInit {
   fetchAverageRating(){
     console.log('Before avergae rating'); 
     // console.log(this.books); 
+    var ratingAvg;
     for(let book of this.books){
       console.log(book._id);
       var bookrating = {'bookid' : book._id};
       this.rootService.getRatingData(bookrating).subscribe((response)=>{
-        console.log(response);
-        this.toastr.success(" Succesful");
+        ratingAvg = response;
+        if(ratingAvg.avgRating != ""){
+          book.avRating = (ratingAvg.avgRating[0].pop ? ratingAvg.avgRating[0].pop : 0);
+        }
       },(error) => {
           console.log('error is ', error)
-          this.toastr.error(" Failed");
       });
     }
   }
   onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     // this.totalstar = $event.newValue;
-    // console.log(`Old Value:${$event.oldValue}, 
-    //   New Value: ${$event.newValue}, 
-    //   Checked Color: ${$event.starRating.checkedcolor}, 
-    //   Unchecked Color: ${$event.starRating.uncheckedcolor}`);
+    console.log('hre');
+    console.log(`Old Value:${$event.oldValue}, 
+      New Value: ${$event.newValue}, 
+      Checked Color: ${$event.starRating.checkedcolor}, 
+      Unchecked Color: ${$event.starRating.uncheckedcolor}`);
   }
 }
