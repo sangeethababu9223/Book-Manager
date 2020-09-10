@@ -1,6 +1,5 @@
 import { BookLists } from '../models/booklists';
 import fs from 'fs';
-import { appbasedirectory } from '../settings';
 export const booksPage = async (req, res, next) => {
   try {
     // console.log(BookLists.find());
@@ -57,7 +56,7 @@ export const removeBook = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  var filePath = appbasedirectory+'/uploads/'+coverval.cover; 
+  var filePath = path.dirname(require.main.filename)+'/uploads/'+coverval.cover; 
   fs.unlinkSync(filePath);
 
 };
