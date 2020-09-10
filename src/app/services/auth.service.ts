@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   public validate(userItem) {
-    return this.http.post('http://localhost:3000/v1/authenticate', userItem).toPromise()
+    return this.http.post('book-manager001/authenticate', userItem).toPromise()
   }
   // public logout() {
   //   console.log("out");

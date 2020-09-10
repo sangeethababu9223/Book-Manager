@@ -12,7 +12,7 @@ export class UploadService {
 
   public upload(data) {
     //let uploadURL = `${this.SERVER_URL}/api/upload`;
-    let uploadURL = 'http://localhost:3000/v1/upload/';
+    let uploadURL = 'book-manager001/upload/';
     console.log('Meow');
     console.log(data);  
     return this.httpClient.post<any>(uploadURL, data, {

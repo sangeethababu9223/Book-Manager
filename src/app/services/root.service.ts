@@ -25,23 +25,23 @@ export class RootService {
       'updated' : updateItem,
       'original' : originalItem,
     }
-    return this.http.post('http://localhost:3000/v1/updateBooks/', query);
+    return this.http.post('book-manager001/updateBooks/', query);
   }
   removeAPIData(book){
-    return this.http.post('http://localhost:3000/v1/removeBooks/', book);
+    return this.http.post('book-manager001/removeBooks/', book);
   }
   // userLogin(userItem){
   //   return this.http.post('http://localhost:3000/v1/users/', userItem);
 
   // }
   postAPIsingleBook(singleBook){
-    return this.http.post('http://localhost:3000/v1/bookOne/', singleBook);
+    return this.http.post('book-manager001/bookOne/', singleBook);
   }
 
   postRatingData(newRatingItem){
-    return this.http.post('http://localhost:3000/v1/rate/', newRatingItem);
+    return this.http.post('book-manager001/rate/', newRatingItem);
   }
   getRatingData(book){
-    return this.http.post('http://localhost:3000/v1/listrate/', book);
+    return this.http.post('book-manager001/listrate/', book);
   }
 }
