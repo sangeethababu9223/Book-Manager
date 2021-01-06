@@ -11,7 +11,7 @@
     "deleteData": "babel-node ./src/utils/deleteData"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "bson": "^4.0.4",
     "chai": "^4.2.0",
